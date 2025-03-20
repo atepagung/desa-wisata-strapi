@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_homepage_section_3s",
+  "info": {
+    "displayName": "Homepage - Section 2 - Event List",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "event_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.event-list"
+    }
+  }
+}

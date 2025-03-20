@@ -1,0 +1,24 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepages",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "Homepage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "content_page": {
+      "type": "dynamiczone",
+      "components": [
+        "homepage.section-1",
+        "homepage.homepage-section-5",
+        "homepage.homepage-section-4",
+        "homepage.homepage-section-3",
+        "homepage.homepage-section-2"
+      ]
+    }
+  }
+}

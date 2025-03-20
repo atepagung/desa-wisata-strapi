@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_homepage_section_1s",
+  "info": {
+    "displayName": "Homepage - Banner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "button": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.navigation"
+    }
+  }
+}

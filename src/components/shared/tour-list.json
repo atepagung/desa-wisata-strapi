@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_tour_lists",
+  "info": {
+    "displayName": "TourList"
+  },
+  "options": {},
+  "attributes": {
+    "tour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tour.tour"
+    }
+  }
+}

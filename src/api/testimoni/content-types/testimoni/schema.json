@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "testimonis",
+  "info": {
+    "singularName": "testimoni",
+    "pluralName": "testimonis",
+    "displayName": "Testimoni"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "photo_profile": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "testimoni": {
+      "type": "richtext"
+    }
+  }
+}

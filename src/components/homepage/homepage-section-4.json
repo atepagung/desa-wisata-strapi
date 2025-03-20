@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_homepage_homepage_section_4s",
+  "info": {
+    "displayName": "Homepage - Section 3 - Paket Wisata",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "tour_list": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tour-list"
+    }
+  }
+}

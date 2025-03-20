@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "navigation_lists",
+  "info": {
+    "singularName": "navigation-list",
+    "pluralName": "navigation-lists",
+    "displayName": "NavigationList"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "navigation_list": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.navigation"
+      ],
+      "required": true
+    }
+  }
+}
