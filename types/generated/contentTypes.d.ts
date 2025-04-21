@@ -505,6 +505,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
+    description: '';
     displayName: 'Event';
     pluralName: 'events';
     singularName: 'event';
@@ -516,7 +517,15 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     enddate: Schema.Attribute.DateTime;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::event.event'> &
@@ -550,7 +559,15 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -667,6 +684,7 @@ export interface ApiNavigationListNavigationList
 export interface ApiTestimoniTestimoni extends Struct.CollectionTypeSchema {
   collectionName: 'testimonis';
   info: {
+    description: '';
     displayName: 'Testimoni';
     pluralName: 'testimonis';
     singularName: 'testimoni';
@@ -686,7 +704,15 @@ export interface ApiTestimoniTestimoni extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     photo_profile: Schema.Attribute.Media<'images'>;
     publishedAt: Schema.Attribute.DateTime;
-    testimoni: Schema.Attribute.RichText;
+    testimoni: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -709,7 +735,15 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     duration_days: Schema.Attribute.Integer;
     duration_hours: Schema.Attribute.Decimal;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -718,7 +752,15 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
     pictures: Schema.Attribute.Component<'shared.slider', true>;
     price: Schema.Attribute.Decimal & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    short_description: Schema.Attribute.RichText;
+    short_description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     subtitle: Schema.Attribute.Text;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;

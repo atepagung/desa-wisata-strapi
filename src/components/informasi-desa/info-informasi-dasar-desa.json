@@ -1,39 +1,12 @@
 {
-  "kind": "collectionType",
-  "collectionName": "events",
+  "collectionName": "components_informasi_desa_info_informasi_dasar_desas",
   "info": {
-    "singularName": "event",
-    "pluralName": "events",
-    "displayName": "Event",
-    "description": ""
+    "displayName": "Info - Informasi Dasar Desa"
   },
-  "options": {
-    "draftAndPublish": false
-  },
+  "options": {},
   "attributes": {
-    "picture": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.slider"
-    },
     "title": {
-      "type": "string",
-      "required": true
-    },
-    "startdate": {
-      "type": "datetime"
-    },
-    "enddate": {
-      "type": "datetime"
-    },
-    "subtitle": {
-      "type": "text"
-    },
-    "location": {
       "type": "string"
-    },
-    "price": {
-      "type": "decimal"
     },
     "description": {
       "type": "customField",

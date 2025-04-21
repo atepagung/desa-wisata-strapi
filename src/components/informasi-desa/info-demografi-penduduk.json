@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_informasi_desa_info_demografi_penduduks",
+  "info": {
+    "displayName": "Info - Demografi Penduduk"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "jumlah_penduduk": {
+      "type": "biginteger",
+      "min": "0"
+    },
+    "luas": {
+      "type": "decimal",
+      "min": 0
+    },
+    "partisipasi": {
+      "type": "decimal",
+      "min": 0
+    }
+  }
+}

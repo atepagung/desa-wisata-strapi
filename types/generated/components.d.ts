@@ -7,7 +7,15 @@ export interface HomepageHomepageSection2 extends Struct.ComponentSchema {
     displayName: 'Homepage - Section 1 - Informasi Desa';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
   };
@@ -20,7 +28,15 @@ export interface HomepageHomepageSection3 extends Struct.ComponentSchema {
     displayName: 'Homepage - Section 2 - Event List';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     event_list: Schema.Attribute.Component<'shared.event-list', true>;
     title: Schema.Attribute.String;
   };
@@ -33,7 +49,15 @@ export interface HomepageHomepageSection4 extends Struct.ComponentSchema {
     displayName: 'Homepage - Section 3 - Paket Wisata';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     title: Schema.Attribute.String;
     tour_list: Schema.Attribute.Component<'shared.tour-list', true>;
   };
@@ -47,7 +71,15 @@ export interface HomepageHomepageSection5 extends Struct.ComponentSchema {
   };
   attributes: {
     button: Schema.Attribute.Component<'shared.navigation', false>;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     testimoni_list: Schema.Attribute.Component<'shared.testimoni-list', true>;
     title: Schema.Attribute.String;
   };
@@ -62,7 +94,77 @@ export interface HomepageSection1 extends Struct.ComponentSchema {
   attributes: {
     banner: Schema.Attribute.Media<'images'>;
     button: Schema.Attribute.Component<'shared.navigation', false>;
-    description: Schema.Attribute.RichText;
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface InformasiDesaInfoBanner extends Struct.ComponentSchema {
+  collectionName: 'components_informasi_desa_info_banners';
+  info: {
+    displayName: 'Info - Banner';
+  };
+  attributes: {
+    banner: Schema.Attribute.Media<'images', true>;
+  };
+}
+
+export interface InformasiDesaInfoDemografiPenduduk
+  extends Struct.ComponentSchema {
+  collectionName: 'components_informasi_desa_info_demografi_penduduks';
+  info: {
+    displayName: 'Info - Demografi Penduduk';
+  };
+  attributes: {
+    jumlah_penduduk: Schema.Attribute.BigInteger &
+      Schema.Attribute.SetMinMax<
+        {
+          min: '0';
+        },
+        string
+      >;
+    luas: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    partisipasi: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface InformasiDesaInfoInformasiDasarDesa
+  extends Struct.ComponentSchema {
+  collectionName: 'components_informasi_desa_info_informasi_dasar_desas';
+  info: {
+    displayName: 'Info - Informasi Dasar Desa';
+  };
+  attributes: {
+    description: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
     title: Schema.Attribute.String;
   };
 }
@@ -123,7 +225,15 @@ export interface SharedRichText extends Struct.ComponentSchema {
     icon: 'align-justify';
   };
   attributes: {
-    body: Schema.Attribute.RichText;
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'standard';
+        }
+      >;
   };
 }
 
@@ -185,6 +295,9 @@ declare module '@strapi/strapi' {
       'homepage.homepage-section-4': HomepageHomepageSection4;
       'homepage.homepage-section-5': HomepageHomepageSection5;
       'homepage.section-1': HomepageSection1;
+      'informasi-desa.info-banner': InformasiDesaInfoBanner;
+      'informasi-desa.info-demografi-penduduk': InformasiDesaInfoDemografiPenduduk;
+      'informasi-desa.info-informasi-dasar-desa': InformasiDesaInfoInformasiDasarDesa;
       'shared.event-list': SharedEventList;
       'shared.media': SharedMedia;
       'shared.navigation': SharedNavigation;

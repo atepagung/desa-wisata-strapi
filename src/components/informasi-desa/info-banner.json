@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_informasi_desa_info_banners",
+  "info": {
+    "displayName": "Info - Banner"
+  },
+  "options": {},
+  "attributes": {
+    "banner": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}
