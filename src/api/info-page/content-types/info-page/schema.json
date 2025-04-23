@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "info_pages",
+  "info": {
+    "singularName": "info-page",
+    "pluralName": "info-pages",
+    "displayName": "InfoPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content_page": {
+      "type": "dynamiczone",
+      "components": [
+        "informasi-desa.info-lokasi-desa",
+        "informasi-desa.info-informasi-dasar-desa",
+        "informasi-desa.info-demografi-penduduk",
+        "informasi-desa.info-banner"
+      ]
+    }
+  }
+}

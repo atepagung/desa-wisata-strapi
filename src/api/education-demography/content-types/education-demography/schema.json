@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "education_demographies",
+  "info": {
+    "singularName": "education-demography",
+    "pluralName": "education-demographies",
+    "displayName": "EducationDemography",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "amount": {
+      "type": "integer",
+      "required": true
+    },
+    "education": {
+      "type": "enumeration",
+      "enum": [
+        "S2/S3",
+        "S1",
+        "SMA",
+        "SMP",
+        "SD",
+        "Tidak Sekolah"
+      ]
+    }
+  }
+}

@@ -398,6 +398,50 @@ export interface ApiAboutAbout extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiAgeDemographyAgeDemography
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'age_demographies';
+  info: {
+    description: '';
+    displayName: 'AgeDemography';
+    pluralName: 'age-demographies';
+    singularName: 'age-demography';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    age_category: Schema.Attribute.Enumeration<
+      [
+        'Balita (0-4)',
+        'Anak-anak (5-15)',
+        'Remaja (16-17)',
+        'Dewasa Muda (18-25)',
+        'Dewasa (26-35)',
+        'Paruh Baya (36-50)',
+        'Lansia Awal (51-64)',
+        'lansia (>65)',
+      ]
+    >;
+    amount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    gender: Schema.Attribute.Enumeration<['male', 'female']> &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::age-demography.age-demography'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Struct.CollectionTypeSchema {
   collectionName: 'articles';
   info: {
@@ -470,6 +514,95 @@ export interface ApiAuthorAuthor extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
+  collectionName: 'bookings';
+  info: {
+    description: '';
+    displayName: 'Booking';
+    pluralName: 'bookings';
+    singularName: 'booking';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    booking_id: Schema.Attribute.String;
+    booking_status: Schema.Attribute.Enumeration<
+      [
+        'Belum diverifikasi',
+        'Sudah terhubung dengan user',
+        'Menunggu pembayaran',
+        'Pembayaran selesai - transfer',
+        'Pembayaran selesai \u2013 on site',
+        'Selesai',
+        'Pembatalan',
+      ]
+    > &
+      Schema.Attribute.DefaultTo<'Belum diverifikasi'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    customer_amount: Schema.Attribute.Integer;
+    customer_email: Schema.Attribute.String;
+    customer_name: Schema.Attribute.String;
+    customer_phone: Schema.Attribute.String;
+    date: Schema.Attribute.DateTime;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::booking.booking'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    tour: Schema.Attribute.Relation<'oneToOne', 'api::tour.tour'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBudayaPageBudayaPage extends Struct.SingleTypeSchema {
+  collectionName: 'budaya_pages';
+  info: {
+    description: '';
+    displayName: 'BudayaPage';
+    pluralName: 'budaya-pages';
+    singularName: 'budaya-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::budaya-page.budaya-page'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -502,6 +635,81 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCultureCulture extends Struct.CollectionTypeSchema {
+  collectionName: 'cultures';
+  info: {
+    description: '';
+    displayName: 'Culture';
+    pluralName: 'cultures';
+    singularName: 'culture';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::culture.culture'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiEducationDemographyEducationDemography
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'education_demographies';
+  info: {
+    description: '';
+    displayName: 'EducationDemography';
+    pluralName: 'education-demographies';
+    singularName: 'education-demography';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    amount: Schema.Attribute.Integer & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    education: Schema.Attribute.Enumeration<
+      ['S2/S3', 'S1', 'SMA', 'SMP', 'SD', 'Tidak Sekolah']
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::education-demography.education-demography'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   collectionName: 'events';
   info: {
@@ -523,7 +731,7 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
         {
           licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
           output: 'HTML';
-          preset: 'standard';
+          preset: 'rich';
         }
       >;
     enddate: Schema.Attribute.DateTime;
@@ -565,7 +773,7 @@ export interface ApiFooterFooter extends Struct.SingleTypeSchema {
         {
           licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
           output: 'HTML';
-          preset: 'standard';
+          preset: 'rich';
         }
       >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -651,6 +859,43 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiInfoPageInfoPage extends Struct.SingleTypeSchema {
+  collectionName: 'info_pages';
+  info: {
+    description: '';
+    displayName: 'InfoPage';
+    pluralName: 'info-pages';
+    singularName: 'info-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    content_page: Schema.Attribute.DynamicZone<
+      [
+        'informasi-desa.info-lokasi-desa',
+        'informasi-desa.info-informasi-dasar-desa',
+        'informasi-desa.info-demografi-penduduk',
+        'informasi-desa.info-banner',
+      ]
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::info-page.info-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavigationListNavigationList
   extends Struct.SingleTypeSchema {
   collectionName: 'navigation_lists';
@@ -674,6 +919,64 @@ export interface ApiNavigationListNavigationList
       Schema.Attribute.Private;
     navigation_list: Schema.Attribute.DynamicZone<['shared.navigation']> &
       Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiOccupationDemographyOccupationDemography
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'occupation_demographies';
+  info: {
+    displayName: 'OccupationDemography';
+    pluralName: 'occupation-demographies';
+    singularName: 'occupation-demography';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    amount: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::occupation-demography.occupation-demography'
+    > &
+      Schema.Attribute.Private;
+    occupation: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiSejarahPageSejarahPage extends Struct.SingleTypeSchema {
+  collectionName: 'sejarah_pages';
+  info: {
+    displayName: 'SejarahPage';
+    pluralName: 'sejarah-pages';
+    singularName: 'sejarah-page';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    content_page: Schema.Attribute.DynamicZone<['shared.common-section']>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::sejarah-page.sejarah-page'
+    > &
+      Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -710,7 +1013,7 @@ export interface ApiTestimoniTestimoni extends Struct.CollectionTypeSchema {
         {
           licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
           output: 'HTML';
-          preset: 'standard';
+          preset: 'rich';
         }
       >;
     title: Schema.Attribute.String;
@@ -741,7 +1044,7 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
         {
           licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
           output: 'HTML';
-          preset: 'standard';
+          preset: 'rich';
         }
       >;
     duration_days: Schema.Attribute.Integer;
@@ -758,7 +1061,7 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
         {
           licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6ImNkOGRmODU0LWEyYTEtNDc3Ny04MmQxLWM2MzM0MDExMjVmYSIsImxpY2Vuc2VkSG9zdHMiOlsiMTI3LjAuMC4xIiwibG9jYWxob3N0IiwiMTkyLjE2OC4qLioiLCIxMC4qLiouKiIsIjE3Mi4qLiouKiIsIioudGVzdCIsIioubG9jYWxob3N0IiwiKi5sb2NhbCJdLCJ1c2FnZUVuZHBvaW50IjoiaHR0cHM6Ly9wcm94eS1ldmVudC5ja2VkaXRvci5jb20iLCJkaXN0cmlidXRpb25DaGFubmVsIjpbImNsb3VkIiwiZHJ1cGFsIl0sImxpY2Vuc2VUeXBlIjoiZGV2ZWxvcG1lbnQiLCJmZWF0dXJlcyI6WyJEUlVQIl0sInZjIjoiMTQwMGU3OGUifQ.iRuzRWe6srjFnhjZEkAPSTCJDf2JuNJ41YyP8LXiH_YdcW-t6dOdovTUKh5bi2eYYsKNcavKoCe7-IFa1g_JDw';
           output: 'HTML';
-          preset: 'standard';
+          preset: 'rich';
         }
       >;
     subtitle: Schema.Attribute.Text;
@@ -1280,14 +1583,22 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about.about': ApiAboutAbout;
+      'api::age-demography.age-demography': ApiAgeDemographyAgeDemography;
       'api::article.article': ApiArticleArticle;
       'api::author.author': ApiAuthorAuthor;
+      'api::booking.booking': ApiBookingBooking;
+      'api::budaya-page.budaya-page': ApiBudayaPageBudayaPage;
       'api::category.category': ApiCategoryCategory;
+      'api::culture.culture': ApiCultureCulture;
+      'api::education-demography.education-demography': ApiEducationDemographyEducationDemography;
       'api::event.event': ApiEventEvent;
       'api::footer.footer': ApiFooterFooter;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
+      'api::info-page.info-page': ApiInfoPageInfoPage;
       'api::navigation-list.navigation-list': ApiNavigationListNavigationList;
+      'api::occupation-demography.occupation-demography': ApiOccupationDemographyOccupationDemography;
+      'api::sejarah-page.sejarah-page': ApiSejarahPageSejarahPage;
       'api::testimoni.testimoni': ApiTestimoniTestimoni;
       'api::tour.tour': ApiTourTour;
       'plugin::content-releases.release': PluginContentReleasesRelease;

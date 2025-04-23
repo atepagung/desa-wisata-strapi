@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "occupation_demographies",
+  "info": {
+    "singularName": "occupation-demography",
+    "pluralName": "occupation-demographies",
+    "displayName": "OccupationDemography"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "occupation": {
+      "type": "string",
+      "required": true
+    },
+    "amount": {
+      "type": "integer"
+    }
+  }
+}

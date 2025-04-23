@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "age_demographies",
+  "info": {
+    "singularName": "age-demography",
+    "pluralName": "age-demographies",
+    "displayName": "AgeDemography",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "amount": {
+      "type": "integer",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "age_category": {
+      "type": "enumeration",
+      "enum": [
+        "Balita (0-4)",
+        "Anak-anak (5-15)",
+        "Remaja (16-17)",
+        "Dewasa Muda (18-25)",
+        "Dewasa (26-35)",
+        "Paruh Baya (36-50)",
+        "Lansia Awal (51-64)",
+        "lansia (>65)"
+      ]
+    }
+  }
+}

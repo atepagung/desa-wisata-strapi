@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "sejarah_pages",
+  "info": {
+    "singularName": "sejarah-page",
+    "pluralName": "sejarah-pages",
+    "displayName": "SejarahPage"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "content_page": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.common-section"
+      ]
+    }
+  }
+}
