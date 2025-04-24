@@ -3,6 +3,7 @@ export default ({ env }) => ({
       enabled: true,
       config: {
         licenseKey: env('CKEDITOR_LICENSE_KEY'), 
+        editor:{}
       },
     },
   });
