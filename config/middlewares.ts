@@ -1,7 +1,36 @@
 export default [
   'strapi::logger',
   'strapi::errors',
-  'strapi::security',
+  {
+    name: 'strapi::security',
+    config: {
+      contentSecurityPolicy: {
+        useDefaults: true,
+        directives: {
+          'script-src': [
+            "'self'",    // ini WAJIB supaya bisa load dari domain sendiri
+            'https:',
+            'https://cdn.ckeditor.com',
+          ],
+          'connect-src': [
+            "'self'",
+            'https:',
+            'https://proxy-event.ckeditor.com',
+          ],
+          'img-src': [
+            "'self'",
+            'data:',
+            'blob:',
+            'https:',
+          ],
+          'frame-src': [
+            "'self'",
+            'https:',
+          ],
+        },
+      },
+    },
+  },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
@@ -9,16 +38,4 @@ export default [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
-  {
-    name: 'strapi::security',
-    config: {
-      contentSecurityPolicy: {
-        useDefaults: true,
-        directives: {
-          'script-src': ['https://cdn.ckeditor.com'],
-          'connect-src': ['https://proxy-event.ckeditor.com']
-        },
-      },
-    },
-  },
 ];
