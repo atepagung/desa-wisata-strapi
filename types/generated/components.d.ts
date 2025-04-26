@@ -16,8 +16,19 @@ export interface HomepageHomepageSection2 extends Struct.ComponentSchema {
           preset: 'rich';
         }
       >;
+    description2: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6IjNhYTE2MzljLTIzOTMtNGIzOS1iZGZlLTIyYjg5NGFhMDFjMyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6ImRiNzQ2MTM4In0.VVtuslMcdF4aN6XFomxv2B36p3d6Ii1bwt31FT0z8MzpHewBNkxOeqhQW2i_sDdDp4W2RUeKfuFIK-__jpfaXw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
     image: Schema.Attribute.Media<'images'>;
+    image2: Schema.Attribute.Media<'images'>;
     title: Schema.Attribute.String;
+    title2: Schema.Attribute.String;
   };
 }
 

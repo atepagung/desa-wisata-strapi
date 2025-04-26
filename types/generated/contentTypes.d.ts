@@ -896,6 +896,88 @@ export interface ApiInfoPageInfoPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiKesenianKesenian extends Struct.CollectionTypeSchema {
+  collectionName: 'kesenians';
+  info: {
+    displayName: 'Kesenian';
+    pluralName: 'kesenians';
+    singularName: 'kesenian';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6IjNhYTE2MzljLTIzOTMtNGIzOS1iZGZlLTIyYjg5NGFhMDFjMyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6ImRiNzQ2MTM4In0.VVtuslMcdF4aN6XFomxv2B36p3d6Ii1bwt31FT0z8MzpHewBNkxOeqhQW2i_sDdDp4W2RUeKfuFIK-__jpfaXw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kesenian.kesenian'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiKulinerKuliner extends Struct.CollectionTypeSchema {
+  collectionName: 'kuliners';
+  info: {
+    displayName: 'Kuliner';
+    pluralName: 'kuliners';
+    singularName: 'kuliner';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    body: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          licenseKey: 'eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6IjNhYTE2MzljLTIzOTMtNGIzOS1iZGZlLTIyYjg5NGFhMDFjMyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6ImRiNzQ2MTM4In0.VVtuslMcdF4aN6XFomxv2B36p3d6Ii1bwt31FT0z8MzpHewBNkxOeqhQW2i_sDdDp4W2RUeKfuFIK-__jpfaXw';
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::kuliner.kuliner'
+    > &
+      Schema.Attribute.Private;
+    media: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiNavigationListNavigationList
   extends Struct.SingleTypeSchema {
   collectionName: 'navigation_lists';
@@ -1596,6 +1678,8 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::homepage.homepage': ApiHomepageHomepage;
       'api::info-page.info-page': ApiInfoPageInfoPage;
+      'api::kesenian.kesenian': ApiKesenianKesenian;
+      'api::kuliner.kuliner': ApiKulinerKuliner;
       'api::navigation-list.navigation-list': ApiNavigationListNavigationList;
       'api::occupation-demography.occupation-demography': ApiOccupationDemographyOccupationDemography;
       'api::sejarah-page.sejarah-page': ApiSejarahPageSejarahPage;

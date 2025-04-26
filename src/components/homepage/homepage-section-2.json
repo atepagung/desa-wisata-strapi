@@ -25,6 +25,25 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "title2": {
+      "type": "string"
+    },
+    "description2": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "licenseKey": "eyJhbGciOiJFUzI1NiJ9.eyJleHAiOjE3NzYwMzgzOTksImp0aSI6IjNhYTE2MzljLTIzOTMtNGIzOS1iZGZlLTIyYjg5NGFhMDFjMyIsInVzYWdlRW5kcG9pbnQiOiJodHRwczovL3Byb3h5LWV2ZW50LmNrZWRpdG9yLmNvbSIsImRpc3RyaWJ1dGlvbkNoYW5uZWwiOlsiY2xvdWQiLCJkcnVwYWwiXSwiZmVhdHVyZXMiOlsiRFJVUCJdLCJ2YyI6ImRiNzQ2MTM4In0.VVtuslMcdF4aN6XFomxv2B36p3d6Ii1bwt31FT0z8MzpHewBNkxOeqhQW2i_sDdDp4W2RUeKfuFIK-__jpfaXw",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "image2": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
