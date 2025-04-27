@@ -542,6 +542,7 @@ export interface ApiBookingBooking extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    customer_address: Schema.Attribute.Text;
     customer_amount: Schema.Attribute.Integer;
     customer_email: Schema.Attribute.String;
     customer_name: Schema.Attribute.String;

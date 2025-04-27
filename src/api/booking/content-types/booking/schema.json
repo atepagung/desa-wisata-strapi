@@ -46,6 +46,9 @@
         "Pembatalan"
       ],
       "default": "Belum diverifikasi"
+    },
+    "customer_address": {
+      "type": "text"
     }
   }
 }
