@@ -26,9 +26,6 @@
     "enddate": {
       "type": "datetime"
     },
-    "subtitle": {
-      "type": "text"
-    },
     "location": {
       "type": "string"
     },
